@@ -1,0 +1,16 @@
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\bin\Debug\net8.0\DPN.Models.deps.json
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\bin\Debug\net8.0\DPN.Models.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\bin\Debug\net8.0\DPN.Models.pdb
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\bin\Debug\net8.0\DPN.Utilities.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\bin\Debug\net8.0\DPN.Utilities.pdb
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.csproj.AssemblyReference.cache
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.AssemblyInfoInputs.cache
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.AssemblyInfo.cs
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.csproj.CoreCompileInputs.cache
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.sourcelink.json
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.csproj.Up2Date
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\refint\DPN.Models.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\DPN.Models.pdb
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Models\obj\Debug\net8.0\ref\DPN.Models.dll

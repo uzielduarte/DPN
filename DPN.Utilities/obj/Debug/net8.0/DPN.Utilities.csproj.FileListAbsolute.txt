@@ -1,0 +1,12 @@
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\bin\Debug\net8.0\DPN.Utilities.deps.json
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\bin\Debug\net8.0\DPN.Utilities.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\bin\Debug\net8.0\DPN.Utilities.pdb
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.AssemblyInfoInputs.cache
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.AssemblyInfo.cs
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.sourcelink.json
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\refint\DPN.Utilities.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.pdb
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\ref\DPN.Utilities.dll

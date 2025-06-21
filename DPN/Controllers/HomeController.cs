@@ -1,4 +1,4 @@
-using DPN.Models;
+using DPN.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

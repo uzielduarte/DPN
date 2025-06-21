@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\Migrations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\DPN.Models\DPN.Models.csproj" />
     <ProjectReference Include="..\DPN.Utilities\DPN.Utilities.csproj" />
   </ItemGroup>

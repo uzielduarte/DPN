@@ -12,9 +12,12 @@ namespace DPN.DataAccess.Repository
     {
         private readonly ApplicationDbContext _db;
 
+        public IAppUserRepository AppUser { get; private set; }
+
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
+            AppUser = new AppUserRepository(_db);
         }
 
         public void Dispose()

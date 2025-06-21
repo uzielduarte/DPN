@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DPN.Models")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cb5d8cfff756b94465c7011f22b0fc6fd1b6cbf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+923ffae98b2568fb2d8eeaaf35f48a5d56f145cc")]
 [assembly: System.Reflection.AssemblyProductAttribute("DPN.Models")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DPN.Models")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

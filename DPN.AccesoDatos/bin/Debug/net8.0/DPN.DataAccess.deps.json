@@ -623,7 +623,8 @@
       },
       "DPN.Models/1.0.0": {
         "dependencies": {
-          "DPN.Utilities": "1.0.0"
+          "DPN.Utilities": "1.0.0",
+          "Microsoft.Extensions.Identity.Stores": "8.0.10"
         },
         "runtime": {
           "DPN.Models.dll": {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MzDmIRL7BQFIKXhIYwmQY5PNHpyxFJaptq/yKZFC4Vg=",
+  "Hash": "xUAC1hhUDlOcKEwxAS+3qIghjEiP3/oCkOXH7IC2Up4=",
   "Source": "DPN",
   "BasePath": "_content/DPN",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\js\\user.js",
+      "SourceId": "DPN",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\",
+      "BasePath": "_content/DPN",
+      "RelativePath": "js/user.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\user.js"
     },
     {
       "Identity": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

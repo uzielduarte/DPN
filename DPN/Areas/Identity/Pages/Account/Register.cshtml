@@ -1,5 +1,6 @@
 ﻿@page
 @model RegisterModel
+@using DPN.Utilities
 @{
     ViewData["Title"] = "Register";
 }
@@ -49,13 +50,25 @@
                     <label asp-for="Input.ConfirmPassword">Confirmar contraseña</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
+
+                @if (User.IsInRole(DS.Role_Admin))
+                {
+                    <div class="form-floating mb-3">
+                        <label class="form-label" asp-for="Input.Role">Rol</label>
+                        
+                        <select asp-for="Input.Role" class="form-select" asp-items="@Model.Input.RoleList">
+                            <option value="">--Seleccione el rol--</option>
+                        </select>
+                    </div>
+                }
+
                 <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrarse</button>
             </form>
         </div>
 
     </div>
 </div>
-
+ 
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

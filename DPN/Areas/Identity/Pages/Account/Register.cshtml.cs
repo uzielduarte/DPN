@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
@@ -111,12 +112,22 @@ namespace DPN.Areas.Identity.Pages.Account
             
             public string Address { get; set; }
             public string Role {  get; set; }
+
+            public IEnumerable<SelectListItem> RoleList { get; set; }
         }
 
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
+            Input = new InputModel()
+            {
+                RoleList = _roleManager.Roles.Where(r => r.Name != DS.Role_Client).Select(n => n.Name).Select(l => new SelectListItem
+                {
+                    Text = l,
+                    Value = l
+                })
+            };
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -143,7 +154,7 @@ namespace DPN.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User created a new account with password.");
+                    _logger.LogInformation("El usuario ha creado una nueva cuenta con contraseña.");
 
                     if(!await _roleManager.RoleExistsAsync(DS.Role_Admin))
                     {
@@ -158,6 +169,9 @@ namespace DPN.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(DS.Role_Inventory));
                     }
 
+                    // Registrar Admin
+                    //await _userManager.AddToRoleAsync(user, DS.Role_Admin);
+
                     if (user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, DS.Role_Client);
@@ -167,7 +181,7 @@ namespace DPN.Areas.Identity.Pages.Account
                         await _userManager.AddToRoleAsync(user, user.Role);
                     }
 
-                    //await _userManager.AddToRoleAsync(user, DS.Role_Admin);
+                    
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -194,7 +208,7 @@ namespace DPN.Areas.Identity.Pages.Account
                         }
                         else
                         {
-                            // Admin who is registering, stays signed in
+                            // Admin who is registering, stays himself signed in
                             return RedirectToAction("Index", "User", new {Area = "Admin"});
                         }
                         

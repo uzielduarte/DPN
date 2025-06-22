@@ -1,11 +1,14 @@
 ﻿using DPN.DataAccess.Data;
 using DPN.DataAccess.Repository.IRepository;
+using DPN.Utilities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DPN.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = DS.Role_Admin)]
     public class UserController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -18,6 +21,9 @@ namespace DPN.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            
+            //var isAdmin = User.IsInRole("Admin");
+
             return View();
         }
 

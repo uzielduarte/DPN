@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("DPN.Utilities")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2cb5d8cfff756b94465c7011f22b0fc6fd1b6cbf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fdf74e8843565f4471acd562377f874b7a8a0d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("DPN.Utilities")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DPN.Utilities")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

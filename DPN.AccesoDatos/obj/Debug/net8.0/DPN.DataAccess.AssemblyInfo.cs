@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DPN.DataAccess")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+923ffae98b2568fb2d8eeaaf35f48a5d56f145cc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5fdf74e8843565f4471acd562377f874b7a8a0d9")]
 [assembly: System.Reflection.AssemblyProductAttribute("DPN.DataAccess")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DPN.DataAccess")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

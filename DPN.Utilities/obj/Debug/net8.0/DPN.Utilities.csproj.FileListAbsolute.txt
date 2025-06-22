@@ -10,3 +10,4 @@ C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.
 C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\refint\DPN.Utilities.dll
 C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.pdb
 C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\ref\DPN.Utilities.dll
+C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN.Utilities\obj\Debug\net8.0\DPN.Utilities.csproj.AssemblyReference.cache

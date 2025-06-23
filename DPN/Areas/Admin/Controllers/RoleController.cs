@@ -7,6 +7,7 @@ using System.Data;
 namespace DPN.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]")]
     public class RoleController : Controller
     {
         private readonly IRoleRepository _roleRepository;
@@ -16,12 +17,14 @@ namespace DPN.Areas.Admin.Controllers
             _roleRepository = roleRepository;
         }
 
+        [HttpGet("")]
+        [HttpGet("Index")]
         public IActionResult Index()
         {
             return View();
         }
 
-        [HttpGet]
+        [HttpGet("Upsert")]
         public async Task<IActionResult> Upsert(string? id)
         {
             AppRole role = new AppRole();
@@ -40,7 +43,7 @@ namespace DPN.Areas.Admin.Controllers
             return View(role);
         }
 
-        [HttpPost]
+        [HttpPost("Upsert")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Upsert(AppRole rol)
         {
@@ -73,7 +76,7 @@ namespace DPN.Areas.Admin.Controllers
             return View(rol);
         }
 
-        [HttpPost]
+        [HttpPost("Delete")]
         public async Task<IActionResult> Delete([FromBody]string id)
         {
             //string id = data?.id;
@@ -92,7 +95,7 @@ namespace DPN.Areas.Admin.Controllers
 
         #region API
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var roles = await _roleRepository.GetAllAsync();

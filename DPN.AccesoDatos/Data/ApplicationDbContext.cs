@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace DPN.DataAccess.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser, AppRole, string>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -13,11 +13,15 @@ namespace DPN.DataAccess.Data
         }
 
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<AppRole> AppRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            //builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            // The seed method of ModelBuilderExtension static class created to add initial values
+            builder.Seed();
         }
     }
 }

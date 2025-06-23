@@ -1,6 +1,7 @@
 using DPN.DataAccess.Data;
 using DPN.DataAccess.Repository;
 using DPN.DataAccess.Repository.IRepository;
+using DPN.Models;
 using DPN.Utilities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -15,10 +16,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Default does not allowed to work with Roles
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
-    //.AddErrorDescriber<IdentityErrorDescriberES>() // Translate error messages to Spanish
+//builder.Services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+//builder.Services.AddIdentity<UserManager<AppUser>, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+//    .AddDefaultTokenProviders()
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddIdentity<AppUser, AppRole>(options => { options.SignIn.RequireConfirmedAccount = false; })
+    .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddRoles<AppRole>();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -30,8 +36,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+//builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IAppUserRepository, AppUserRepository>();
 // After modifying Identity, I need to add a service to run razor pages
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IEmailSender, EmailSender>();

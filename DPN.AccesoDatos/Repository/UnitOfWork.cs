@@ -1,10 +1,7 @@
 ﻿using DPN.DataAccess.Data;
 using DPN.DataAccess.Repository.IRepository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DPN.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace DPN.DataAccess.Repository
 {
@@ -17,7 +14,7 @@ namespace DPN.DataAccess.Repository
         public UnitOfWork(ApplicationDbContext db)
         {
             _db = db;
-            AppUser = new AppUserRepository(_db);
+           // AppUser = new AppUserRepository(_db);
         }
 
         public void Dispose()

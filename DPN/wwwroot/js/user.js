@@ -37,34 +37,50 @@ function loadDataTable() {
                 "render": function (data) {
                     let today = new Date().getTime();
                     let lock = new Date(data.lockoutEnd).getTime();
+                    let btnLock = '';
+                    let btnDelete = `
+                                <a
+                                    onclick=Delete("/Admin/User/Delete/${data.id}")
+                                    class="btn btn-danger text-white"
+                                    style="cursor:pointer"
+                                >
+                                    <i class="bi bi-trash-fill"></i>
+                                </a>
+                    `;
+
                     if (lock > today) {
-                        return `
-                            <div class="text-center">
+                        btnLock = `
+                            
                                 <a
                                     class="btn btn-danger text-white"
                                     style="cursor:pointer"
-                                    width:150px
                                     onclick=LockUnlock('${data.id}')
                                 >
                                     <i class="bi bi-unlock-fill"></i>Desbloquear
                                 </a>
-                            </div>
+                            
                         `
                     }
                     else {
-                        return `
-                            <div class="text-center">
+                        btnLock = `
+                            
                                 <a
                                     class="btn btn-success text-white"
                                     style="cursor:pointer"
-                                    width:150px
                                     onclick=LockUnlock('${data.id}')
                                 >
                                     <i class="bi bi-lock-fill"></i>Bloquear
                                 </a>
-                            </div>
+                            
                         `
                     }
+
+                    return `
+                        <div class="text-center d-flex justify-content-between">
+                            ${btnLock}
+                            ${btnDelete}
+                        </div>
+                    `
                     
                 }
             }
@@ -114,4 +130,31 @@ function LockUnlock(id)
     //        }
     //    }
     //})
+}
+
+function Delete(url)
+{
+    swal({
+        title: "Estás seguro de elimiar al usuario",
+        text: "Este usuario no podra ser recuperado",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((isDelete) => {
+        if (isDelete) {
+        $.ajax({
+            type: "POST",
+            url: url,
+            success: function (data) {
+                if (data.success) {
+                    toastr.success(data.message)
+                    datatable.ajax.reload()
+                }
+                else {
+                    toastr.error(data.message)
+                }
+            }
+        })
+        }
+    })
 }

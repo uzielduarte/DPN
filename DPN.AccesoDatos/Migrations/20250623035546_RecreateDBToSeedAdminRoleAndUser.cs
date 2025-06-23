@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DPN.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AgregarMigracionInicial : Migration
+    public partial class RecreateDBToSeedAdminRoleAndUser : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,6 +18,7 @@ namespace DPN.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RoleDescription = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: true),
                     Name = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -30,6 +33,9 @@ namespace DPN.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -96,8 +102,8 @@ namespace DPN.DataAccess.Migrations
                 name: "AspNetUserLogins",
                 columns: table => new
                 {
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    ProviderKey = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProviderKey = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     ProviderDisplayName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
@@ -141,8 +147,8 @@ namespace DPN.DataAccess.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    LoginProvider = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: false),
+                    LoginProvider = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Value = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -154,6 +160,33 @@ namespace DPN.DataAccess.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName", "RoleDescription" },
+                values: new object[,]
+                {
+                    { "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1", null, "Miembro", "MIEMBRO", "Usuario con acceso restringido" },
+                    { "746fcc8f-edf0-4300-8212-b613a5bbe1fa", null, "Admin", "ADMIN", "Superusuario" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "a681d61e-3ff6-430b-b121-1e866446298e", 0, "Managua, Managua", "e1445e72-66ae-44da-adb6-7dbb88a8c282", "admin@correo.com", false, "Admin", "Del Sistem", false, null, "ADMIN@CORREO.COM", "ADMIN@CORREO.COM", "AQAAAAIAAYagAAAAEGB9Goy6zlUZcJSyCy/5EBBEHE96IRfVB8y+qu56dO3yuu7kaBdzCyEIjFtWwAeg5A==", "1234567890", false, "e47f2898-443f-485a-9ddc-c3e123118ce8", false, "admin@correo.com" },
+                    { "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea", 0, "Managua, Managua", "5fa97a02-2360-48ad-8400-80c35d8b0a67", "miembro@correo.com", false, "Miembro", "Del Sistem", false, null, "MIEMBRO@CORREO.COM", "MIEMBRO@CORREO.COM", "AQAAAAIAAYagAAAAEJWHcyBgXDawW+MuSm7xWU9Sq89iT9iyiiCOdce8E+eDrFgFxYGaWgen+pJDQGUSTA==", "1234567890", false, "2a454cf5-2c23-491d-ae03-74c7a006838c", false, "miembro@correo.com" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[,]
+                {
+                    { "746fcc8f-edf0-4300-8212-b613a5bbe1fa", "a681d61e-3ff6-430b-b121-1e866446298e" },
+                    { "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1", "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea" }
                 });
 
             migrationBuilder.CreateIndex(

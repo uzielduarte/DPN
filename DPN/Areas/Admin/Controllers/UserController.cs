@@ -1,7 +1,11 @@
-﻿using DPN.DataAccess.Data;
+﻿
+using DPN.DataAccess.Data;
+using DPN.DataAccess.Repository;
 using DPN.DataAccess.Repository.IRepository;
+using DPN.Models;
 using DPN.Utilities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,12 +15,14 @@ namespace DPN.Areas.Admin.Controllers
     [Authorize(Roles = DS.Role_Admin)]
     public class UserController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IAppUserRepository _appUserRepository;
+        private readonly IRoleRepository _roleRepository;
         private readonly ApplicationDbContext _db;
 
-        public UserController(IUnitOfWork unitOfWork, ApplicationDbContext db)
+        public UserController(IAppUserRepository appUserRepository, IRoleRepository roleRepository, ApplicationDbContext db)
         {
-            _unitOfWork = unitOfWork;
+            _appUserRepository = appUserRepository;
+            _roleRepository = roleRepository;
             _db = db;
         }
         public IActionResult Index()
@@ -32,7 +38,7 @@ namespace DPN.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var userList = await _unitOfWork.AppUser.GetAll();
+            var userList = await _appUserRepository.GetAllAsync();
 
             var userRole = await _db.UserRoles.ToListAsync();
 
@@ -50,9 +56,11 @@ namespace DPN.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> LockUnlock([FromBody] string id)
         {
-            var user = await _unitOfWork.AppUser.GetFirst(u => u.Id == id);
+            //var user = await _unitOfWork.AppUser.GetFirst(u => u.Id == id);
+            var user = await _appUserRepository.GetFirstAsync(u => u.Id == id);
 
-            if(user == null)
+
+            if (user == null)
             {
                 return Json(new { success = false, message = "Error de usuario" });
             }
@@ -65,11 +73,14 @@ namespace DPN.Areas.Admin.Controllers
                 user.LockoutEnd = DateTime.Now.AddYears(1000);
             }
 
-            await _unitOfWork.Save();
+            //await _unitOfWork.Save();
+            await _appUserRepository.UpdateUserAsync(user);
 
             return Json(new { success = true, message = "Operacion Exitosa" });
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> Delete(int id){}
         #endregion
     }
 }

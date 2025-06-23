@@ -1,0 +1,62 @@
+﻿@model DPN.Models.AppRole
+ 
+@{
+    ViewData["Title"] = "Upsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var titulo = "Crear rol";
+}
+
+<form method="post">
+    <div class="mx-2">
+        <div class="row border-0">
+            <div 
+                asp-validation-summary="ModelOnly"
+                class="text-danger"
+            >
+
+            </div>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Model.Id))
+        {
+            titulo = "Actualizar rol";
+            <input type="hidden" asp-for="Id" />
+        }
+
+        <div class="col-12 border-bottom p-0">
+             <h2 class="text-primary">@titulo</h2>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="mb-3 col-md-6">
+                <label>Nombre</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Nombre del rol" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Descripción</label>
+                <input type="text" asp-for="RoleDescription" class="form-control" placeholder="Descripción del rol" />
+                <span asp-validation-for="RoleDescription" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            @if (!string.IsNullOrEmpty(Model.Id))
+            {
+                <partial name="_BtnUpdatAndReturn" model="Model.Id" />
+            }
+            else
+            {
+                <partial name="_BtnCreateReturn" />
+            }
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

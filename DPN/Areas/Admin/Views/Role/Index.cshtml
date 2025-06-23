@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="text-primary">Roles</h2>
+    </div>
+    <div class="col-lg-6">
+        <a
+            class="btn btn-outline-primary"
+            asp-action="Upsert"
+           >
+            <i class="bi bi-plus-square-fill"></i>
+            Agregar nuevo rol
+        </a>
+    </div>
+</div>
+
+<div class="mt-2 p-4 border rounded bg-light">
+    <div class="table-responsive">
+
+        <table id="tblRoles" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+
+                    @* <th></th> *@  <!--remove the extra  column-->
+                </tr>
+            </thead>
+
+        </table>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/role.js"></script>
+}

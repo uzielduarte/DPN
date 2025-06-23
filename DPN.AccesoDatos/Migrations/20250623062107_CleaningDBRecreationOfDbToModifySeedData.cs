@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DPN.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class RecreateDBToSeedAdminRoleAndUser : Migration
+    public partial class CleaningDBRecreationOfDbToModifySeedData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -36,6 +36,7 @@ namespace DPN.DataAccess.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    isSystemUser = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -167,17 +168,17 @@ namespace DPN.DataAccess.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName", "RoleDescription" },
                 values: new object[,]
                 {
-                    { "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1", null, "Miembro", "MIEMBRO", "Usuario con acceso restringido" },
-                    { "746fcc8f-edf0-4300-8212-b613a5bbe1fa", null, "Admin", "ADMIN", "Superusuario" }
+                    { "05495547-2a00-401b-aa41-b60e34ed5be6", null, "Admin", "ADMIN", "Superusuario" },
+                    { "26f4131c-9186-41e4-ae07-d7dc230da108", null, "Miembro", "MIEMBRO", "Usuario con acceso restringido" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: new[] { "Id", "AccessFailedCount", "Address", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "isSystemUser" },
                 values: new object[,]
                 {
-                    { "a681d61e-3ff6-430b-b121-1e866446298e", 0, "Managua, Managua", "e1445e72-66ae-44da-adb6-7dbb88a8c282", "admin@correo.com", false, "Admin", "Del Sistem", false, null, "ADMIN@CORREO.COM", "ADMIN@CORREO.COM", "AQAAAAIAAYagAAAAEGB9Goy6zlUZcJSyCy/5EBBEHE96IRfVB8y+qu56dO3yuu7kaBdzCyEIjFtWwAeg5A==", "1234567890", false, "e47f2898-443f-485a-9ddc-c3e123118ce8", false, "admin@correo.com" },
-                    { "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea", 0, "Managua, Managua", "5fa97a02-2360-48ad-8400-80c35d8b0a67", "miembro@correo.com", false, "Miembro", "Del Sistem", false, null, "MIEMBRO@CORREO.COM", "MIEMBRO@CORREO.COM", "AQAAAAIAAYagAAAAEJWHcyBgXDawW+MuSm7xWU9Sq89iT9iyiiCOdce8E+eDrFgFxYGaWgen+pJDQGUSTA==", "1234567890", false, "2a454cf5-2c23-491d-ae03-74c7a006838c", false, "miembro@correo.com" }
+                    { "8ae508e1-33dc-467f-b280-fd635a5fda00", 0, "Managua, Managua", "bd91da19-6254-48c5-99a2-de2ab261576c", "admin@correo.com", false, "Admin", "Del Sistem", false, null, "ADMIN@CORREO.COM", "ADMIN@CORREO.COM", "AQAAAAIAAYagAAAAEM17Tvswh58HCFhbKnMRnNwwimuaNVuU+4gneXSKlibOojc9R94xv7UeMQAWk0tR4w==", "1234567890", false, "a60c4b3d-6a99-4ac6-8141-3db7c5f3c954", false, "admin@correo.com", true },
+                    { "ac00b4d4-3782-4a81-b55e-1792d7cbb3be", 0, "Managua, Managua", "413d825f-84b7-4693-80a7-33d95172a5ba", "miembro@correo.com", false, "Miembro", "Del Sistem", false, null, "MIEMBRO@CORREO.COM", "MIEMBRO@CORREO.COM", "AQAAAAIAAYagAAAAEMSblOxdyPiujd05VvB1pfKv16JvoJO5uz2LxBWLcipBbb7bb158SAGye6RsyxwqUQ==", "1234567890", false, "ce32b540-8acc-4e98-b100-c78e6d5bb80d", false, "miembro@correo.com", false }
                 });
 
             migrationBuilder.InsertData(
@@ -185,8 +186,8 @@ namespace DPN.DataAccess.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "746fcc8f-edf0-4300-8212-b613a5bbe1fa", "a681d61e-3ff6-430b-b121-1e866446298e" },
-                    { "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1", "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea" }
+                    { "05495547-2a00-401b-aa41-b60e34ed5be6", "8ae508e1-33dc-467f-b280-fd635a5fda00" },
+                    { "26f4131c-9186-41e4-ae07-d7dc230da108", "ac00b4d4-3782-4a81-b55e-1792d7cbb3be" }
                 });
 
             migrationBuilder.CreateIndex(

@@ -32,6 +32,7 @@ namespace DPN.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -40,6 +41,7 @@ namespace DPN.DataAccess.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("RoleDescription")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
@@ -55,14 +57,14 @@ namespace DPN.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "746fcc8f-edf0-4300-8212-b613a5bbe1fa",
+                            Id = "fa1aa086-9bf2-4281-b2c5-c149c73d28ca",
                             Name = "Admin",
                             NormalizedName = "ADMIN",
                             RoleDescription = "Superusuario"
                         },
                         new
                         {
-                            Id = "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1",
+                            Id = "64b47966-5dd4-4cae-ad86-de5152361efc",
                             Name = "Miembro",
                             NormalizedName = "MIEMBRO",
                             RoleDescription = "Usuario con acceso restringido"
@@ -136,6 +138,9 @@ namespace DPN.DataAccess.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<bool>("isSystemUser")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -151,10 +156,10 @@ namespace DPN.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a681d61e-3ff6-430b-b121-1e866446298e",
+                            Id = "2142774d-9f61-4a10-b03c-1675f7542d66",
                             AccessFailedCount = 0,
                             Address = "Managua, Managua",
-                            ConcurrencyStamp = "e1445e72-66ae-44da-adb6-7dbb88a8c282",
+                            ConcurrencyStamp = "4c14bea2-36d6-4edc-bc40-78c2e3603ede",
                             Email = "admin@correo.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -162,19 +167,20 @@ namespace DPN.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@CORREO.COM",
                             NormalizedUserName = "ADMIN@CORREO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGB9Goy6zlUZcJSyCy/5EBBEHE96IRfVB8y+qu56dO3yuu7kaBdzCyEIjFtWwAeg5A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKH3IIDqTuAmMVlFA0P7eeYhAuiXU2tKjrtKA+D5FlwxQ69u1RVAvWDffv91yvsR+w==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e47f2898-443f-485a-9ddc-c3e123118ce8",
+                            SecurityStamp = "28dccb62-a270-47ad-a9e0-9c4c128684b0",
                             TwoFactorEnabled = false,
-                            UserName = "admin@correo.com"
+                            UserName = "admin@correo.com",
+                            isSystemUser = true
                         },
                         new
                         {
-                            Id = "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea",
+                            Id = "b7d319a1-b308-4883-a366-30864f31536b",
                             AccessFailedCount = 0,
                             Address = "Managua, Managua",
-                            ConcurrencyStamp = "5fa97a02-2360-48ad-8400-80c35d8b0a67",
+                            ConcurrencyStamp = "61e625a6-89e7-4a68-886b-148e4b0d432e",
                             Email = "miembro@correo.com",
                             EmailConfirmed = false,
                             FirstName = "Miembro",
@@ -182,12 +188,13 @@ namespace DPN.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "MIEMBRO@CORREO.COM",
                             NormalizedUserName = "MIEMBRO@CORREO.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJWHcyBgXDawW+MuSm7xWU9Sq89iT9iyiiCOdce8E+eDrFgFxYGaWgen+pJDQGUSTA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKn4Dx4z/vJdculqyDNWjZOtyr6BFZNxu671GCF7IIM+i2nQl0o/5reXoDnz43VNhA==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2a454cf5-2c23-491d-ae03-74c7a006838c",
+                            SecurityStamp = "51d89a15-6f34-41d6-b1bd-5c085204ffc4",
                             TwoFactorEnabled = false,
-                            UserName = "miembro@correo.com"
+                            UserName = "miembro@correo.com",
+                            isSystemUser = false
                         });
                 });
 
@@ -280,13 +287,13 @@ namespace DPN.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "a681d61e-3ff6-430b-b121-1e866446298e",
-                            RoleId = "746fcc8f-edf0-4300-8212-b613a5bbe1fa"
+                            UserId = "2142774d-9f61-4a10-b03c-1675f7542d66",
+                            RoleId = "fa1aa086-9bf2-4281-b2c5-c149c73d28ca"
                         },
                         new
                         {
-                            UserId = "ae132fb1-603f-4f80-8e8c-d1ac8a03c6ea",
-                            RoleId = "61c4acb7-7c10-4dd9-af04-f5e8c52ee5b1"
+                            UserId = "b7d319a1-b308-4883-a366-30864f31536b",
+                            RoleId = "64b47966-5dd4-4cae-ad86-de5152361efc"
                         });
                 });
 

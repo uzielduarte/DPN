@@ -33,8 +33,7 @@ namespace DPN.DataAccess.Repository
 
         public async Task<IEnumerable<AppUser>> GetAllAsync()
         {
-            // UserManager no tiene un método GetAll directo,
-            // pero puedes acceder al IQueryable de usuarios si lo necesitas.
+            
             return await Task.FromResult(_userManager.Users.ToList());
         }
 
@@ -53,5 +52,20 @@ namespace DPN.DataAccess.Repository
             return await _userManager.Users.FirstOrDefaultAsync(filter);
         }
 
+        public async Task<IList<string>> GetRolesAsync(AppUser user)
+        {
+            return await _userManager.GetRolesAsync(user);
+        }
+
+        public async Task<bool> AddToRoleAsync(AppUser user, string roleName)
+        {
+            var result = await _userManager.AddToRoleAsync(user, roleName);
+            return result.Succeeded;
+        }
+        public async Task<bool> RemoveFromRoleAsync(AppUser user, string roleName)
+        {
+            var result = await _userManager.RemoveFromRoleAsync(user, roleName);
+            return result.Succeeded;
+        }
     }
 }

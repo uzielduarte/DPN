@@ -18,5 +18,11 @@ namespace DPN.DataAccess.Repository.IRepository
         Task<IdentityResult> DeleteUserAsync(AppUser user);
 
         Task<AppUser> GetFirstAsync(Expression<Func<AppUser, bool>> filter);
+
+        Task<IList<string>> GetRolesAsync(AppUser user);
+
+        Task<bool> AddToRoleAsync(AppUser user, string roleName);
+
+        Task<bool> RemoveFromRoleAsync(AppUser user, string roleName);
     }
 }

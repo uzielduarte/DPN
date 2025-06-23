@@ -60,7 +60,8 @@ namespace DPN.DataAccess.Data
                 FirstName = "Admin",
                 LastName = "Del Sistem",
                 PhoneNumber = "1234567890",
-                Address = "Managua, Managua"
+                Address = "Managua, Managua",
+                isSystemUser = true,
             };
 
             AdminUser.NormalizedUserName = AdminUser.UserName.ToUpper();

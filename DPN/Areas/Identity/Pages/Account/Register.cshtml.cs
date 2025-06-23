@@ -90,7 +90,7 @@ namespace DPN.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} y máximo {1} caractere.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -101,7 +101,7 @@ namespace DPN.Areas.Identity.Pages.Account
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "La contraseña y su confirmación no son iguales.")]
             public string ConfirmPassword { get; set; }
 
             public string PhoneNumber {  get; set; }
@@ -122,7 +122,7 @@ namespace DPN.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
             Input = new InputModel()
             {
-                RoleList = _roleManager.Roles.Where(r => r.Name != DS.Role_Client).Select(n => n.Name).Select(l => new SelectListItem
+                RoleList = _roleManager.Roles.Where(r => r.Name != DS.Role_Admin).Select(n => n.Name).Select(l => new SelectListItem
                 {
                     Text = l,
                     Value = l
@@ -156,21 +156,9 @@ namespace DPN.Areas.Identity.Pages.Account
                 {
                     _logger.LogInformation("El usuario ha creado una nueva cuenta con contraseña.");
 
-                    if(!await _roleManager.RoleExistsAsync(DS.Role_Admin))
-                    {
-                        await _roleManager.CreateAsync(new AppRole { Name = DS.Role_Admin, RoleDescription = "Admin creado desde Register" });
-                    }
-                    if (!await _roleManager.RoleExistsAsync(DS.Role_Client))
-                    {
-                        await _roleManager.CreateAsync(new AppRole {Name = DS.Role_Client , RoleDescription = "Cliente creado desde Register"});
-                    }
-
-                    // Registrar Admin
-                    //await _userManager.AddToRoleAsync(user, DS.Role_Admin);
-
                     if (user.Role == null)
                     {
-                        await _userManager.AddToRoleAsync(user, DS.Role_Client);
+                        await _userManager.AddToRoleAsync(user, DS.Role_Member);
                     }
                     else
                     {
@@ -213,7 +201,7 @@ namespace DPN.Areas.Identity.Pages.Account
 
                 Input = new InputModel()
                 {
-                    RoleList = _roleManager.Roles.Where(r => r.Name != DS.Role_Client).Select(n => n.Name).Select(l => new SelectListItem
+                    RoleList = _roleManager.Roles.Where(r => r.Name != DS.Role_Admin).Select(n => n.Name).Select(l => new SelectListItem
                     {
                         Text = l,
                         Value = l

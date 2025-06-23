@@ -16,5 +16,8 @@ namespace DPN.DataAccess.Repository.IRepository
         Task<IdentityResult> CreateAsync(AppRole role);
         Task<IdentityResult> UpdateAsync(AppRole role);
         Task<IdentityResult> DeleteAsync(AppRole role);
+        Task<List<AppRole>> GetAllListAsync();
+        Task<bool> RoleExistsAsync(string roleName);
+        
     }
 }

@@ -38,6 +38,12 @@ function loadDataTable() {
                     let today = new Date().getTime();
                     let lock = new Date(data.lockoutEnd).getTime();
                     let btnLock = '';
+                    let btnRoles = `
+                        <a class="btn btn-warning btn-sm shadow-none"
+                           href="/Admin/User/Roles/${data.id}">
+                           <i class="bi bi-card-checklist"></i> Roles
+                        </a>
+                    `
                     let btnDelete = `
                                 <a
                                     onclick=Delete("/Admin/User/Delete/${data.id}")
@@ -77,6 +83,7 @@ function loadDataTable() {
 
                     return `
                         <div class="text-center d-flex justify-content-between">
+                            ${btnRoles}
                             ${btnLock}
                             ${btnDelete}
                         </div>
@@ -115,25 +122,9 @@ function LockUnlock(id)
             console.error('Error:', error);
             toastr.error("Error al comunicarse con el servidor.");
         });
-    //$.ajax({
-    //    type: "POST",
-    //    url: 'Admin/User/LockUnlock',
-    //    data: JSON.stringify(id),
-    //    contentType: "application/json",
-    //    success: function (data) {
-    //        if (data.success) {
-    //            toastr.success(data.message)
-    //            datatable.ajax.reload()
-    //        }
-    //        else {
-    //            toastr.error(data.message)
-    //        }
-    //    }
-    //})
 }
 
-function Delete(url)
-{
+function Delete(url) {
     swal({
         title: "Estás seguro de elimiar al usuario",
         text: "Este usuario no podra ser recuperado",
@@ -142,19 +133,19 @@ function Delete(url)
         dangerMode: true
     }).then((isDelete) => {
         if (isDelete) {
-        $.ajax({
-            type: "POST",
-            url: url,
-            success: function (data) {
-                if (data.success) {
-                    toastr.success(data.message)
-                    datatable.ajax.reload()
+            $.ajax({
+                type: "POST",
+                url: url,
+                success: function (data) {
+                    if (data.success) {
+                        toastr.success(data.message)
+                        datatable.ajax.reload()
+                    }
+                    else {
+                        toastr.error(data.message)
+                    }
                 }
-                else {
-                    toastr.error(data.message)
-                }
-            }
-        })
+            })
         }
     })
 }

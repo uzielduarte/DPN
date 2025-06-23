@@ -26,8 +26,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\duart\OneDrive - UNI\Escritorio\DPN\DPN
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Areas/Admin/Views/Role/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Areas/Admin/Views/Role/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Areas/Admin/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Areas/Admin/Views/User/Roles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxSb2xlcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Areas/Admin/Views/_ViewImports.cshtml]
@@ -208,6 +220,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Views/Shared/_BtnCreateReturn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CdG5DcmVhdGVSZXR1cm4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Views/Shared/_BtnUpdatAndReturn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9CdG5VcGRhdEFuZFJldHVybi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/duart/OneDrive - UNI/Escritorio/DPN/DPN/Views/Shared/_LoginPartial.cshtml]

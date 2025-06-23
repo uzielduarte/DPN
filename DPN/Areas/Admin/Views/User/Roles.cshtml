@@ -1,0 +1,46 @@
+﻿@model UserRolesViewModel
+
+@{
+    ViewData["Title"] = "Roles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container my-4">
+    <h3 class="mb-3">Roles de <strong>@Model.UserName</strong></h3>
+
+    <ul class="list-group mb-4">
+        @foreach (var role in Model.Roles)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @role
+                <form asp-action="RemoveRole" method="post" class="m-0">
+                    <input type="hidden" name="userId" value="@Model.UserId" />
+                    <input type="hidden" name="roleName" value="@role" />
+                    <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                </form>
+            </li>
+        }
+    </ul>
+
+    <h3 class="mb-3">Todos los Roles</h3>
+    <ul class="list-group">
+        @foreach (var role in Model.AllRoles)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @role.Name
+                @if (!Model.Roles.Contains(role.Name))
+                {
+                    <form asp-action="AddRole" method="post" class="m-0">
+                        <input type="hidden" name="userId" value="@Model.UserId" />
+                        <input type="hidden" name="roleName" value="@role.Name" />
+                        <button type="submit" class="btn btn-sm btn-success">Add</button>
+                    </form>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">Asignado</span>
+                }
+            </li>
+        }
+    </ul>
+</div>

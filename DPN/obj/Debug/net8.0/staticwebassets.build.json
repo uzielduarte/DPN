@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xUAC1hhUDlOcKEwxAS+3qIghjEiP3/oCkOXH7IC2Up4=",
+  "Hash": "m3fOHULpaX8V6chI0B36pFtnGm01FI7jtLFWg/T38vk=",
   "Source": "DPN",
   "BasePath": "_content/DPN",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\js\\role.js",
+      "SourceId": "DPN",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\",
+      "BasePath": "_content/DPN",
+      "RelativePath": "js/role.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\role.js"
     },
     {
       "Identity": "C:\\Users\\duart\\OneDrive - UNI\\Escritorio\\DPN\\DPN\\wwwroot\\js\\site.js",

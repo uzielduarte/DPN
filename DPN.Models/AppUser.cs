@@ -20,5 +20,7 @@ namespace DPN.Models
 
         [NotMapped]
         public string Role { get; set; }
+
+        public bool isSystemUser { get; set; } = false;
     }
 }

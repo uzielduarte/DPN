@@ -41,4 +41,15 @@ public class RoleRepository : IRoleRepository
     {
         return await _roleManager.DeleteAsync(role);
     }
+
+    public async Task<List<AppRole>> GetAllListAsync()
+    {
+        return await _roleManager.Roles.ToListAsync();
+    }
+
+    public async Task<bool> RoleExistsAsync(string roleName)
+    {
+        return await _roleManager.RoleExistsAsync(roleName);
+    }
+
 }
